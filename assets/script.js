@@ -9,7 +9,7 @@
       p1:"Mehmonlarni kutib olish",p2:"Kelin-kuyovning kirib kelishi",p3:"Bazm va tabriklar",p4:"Kelin salom va xayrlashuv",
       lKick:"Qayerda",lTitle:"Marosim manzili",openMap:"Xaritada ochish",place:"“Baxtli oila” to‘yxonasi",
       addr:"Qarshi shahri",wait:"Sizni intizorlik bilan kutamiz!",
-      evt:"Sardor va Zaynabxonning to‘yi"},
+      evt:"Sardor va Zaynabhonning to‘yi"},
     ru:{special:"Особое приглашение для вас",inv:"приглашение",open:"Открыть приглашение",greet:"Дорогой гость!",and:"и",
       heroText:"Мы будем бесконечно счастливы видеть вас в день, когда два сердца соединятся навсегда.",
       monthGen:"ноября",when:"суббота, в 17:00",cdKick:"Отсчёт начался",cdTitle:"До свадьбы осталось",
@@ -73,7 +73,7 @@
   // music
   var bgm = document.getElementById("bgm"), mBtn = document.getElementById("musicBtn"), wantMusic = true, fadeT;
   // start from the lively part of the song, and loop back to it
-  var START = 56;
+  var START = 31.8; // "ishqimizda" so‘zi
   function toStart(){ try{ if(bgm.duration > START) bgm.currentTime = START; }catch(e){} }
   if(bgm.readyState >= 1) toStart(); else bgm.addEventListener("loadedmetadata", toStart, {once:true});
   bgm.addEventListener("ended", function(){ toStart(); if(wantMusic) bgm.play().catch(function(){}); });
