@@ -72,6 +72,11 @@
 
   // music
   var bgm = document.getElementById("bgm"), mBtn = document.getElementById("musicBtn"), wantMusic = true, fadeT;
+  // start from the lively part of the song, and loop back to it
+  var START = 56;
+  function toStart(){ try{ if(bgm.duration > START) bgm.currentTime = START; }catch(e){} }
+  if(bgm.readyState >= 1) toStart(); else bgm.addEventListener("loadedmetadata", toStart, {once:true});
+  bgm.addEventListener("ended", function(){ toStart(); if(wantMusic) bgm.play().catch(function(){}); });
   function fadeIn(){
     clearInterval(fadeT); bgm.volume = 0;
     fadeT = setInterval(function(){ bgm.volume = Math.min(1, bgm.volume + 0.05); if(bgm.volume>=1) clearInterval(fadeT); }, 80);
